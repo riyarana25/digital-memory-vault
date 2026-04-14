@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./db");
 
+const authRoutes = require("./routes/auth");
+const memoryRoutes = require("./routes/memory");
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,6 +21,8 @@ app.get("/test-db", (req, res) => {
     res.send("Database connected!");
   });
 });
+app.use("/auth", authRoutes);
+app.use("/memories", memoryRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
