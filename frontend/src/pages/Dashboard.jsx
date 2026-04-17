@@ -44,7 +44,7 @@ function Dashboard() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {memories.map((m) => (
-            <MemoryCard key={m.id} memory={m} />
+            <MemoryCard key={m.id} memory={m} refresh={fetchMemories} />
           ))}
         </div>
       </div>
